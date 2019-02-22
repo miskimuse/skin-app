@@ -1,28 +1,62 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+class Login extends React.Component {
+
+    constructor(){
+      super();
+      this.state = {
+        sessionToken: ''
+      }
+    }
+  
+    componentWillMount(){
+      const token = localStorage.getItem('token');
+      if (token && !this.state.sessionToken){
+        this.setState({sessionToken: token});
+      }
+    }
+  
+    setSessionState = (token) => {
+      localStorage.setItem('token', token);
+      this.setState({sessionToken: token});
+    }
+  
+    logout = () => {
+      this.setState({
+        sessionToken: ''
+      })
+      localStorage.clear();
+    }
+  
+    protectedViews = () => {
+      if (this.state.sessionToken === localStorage.getItem('token')){
+        return (
+          <Switch>
+            <Route path='/' exact>
+              <Splash sessionToken={this.state.sessionToken}/>
+            </Route>
+          </Switch>
+        )
+      } else {
+        return (
+          <Route path="/auth">
+            <Auth setToken={this.setSessionState}/>
+          </Route>
+        )
+      }
+    }
+  
+    render() {
+      return (
+        <Router>
+          <div>
+            <SiteBar clickLogout={this.logout}/>
+            {this.protectedViews()}
+          </div>
+        </Router>
+      );
+    }
   }
-}
-
-export default App;
+  
+  export default App;
+  
