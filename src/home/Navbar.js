@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
+import './Navbar.css';
+//import APIURL from './helpers/environment';
 import {
     Navbar,
     NavbarBrand,
@@ -26,10 +28,9 @@ class SiteBar extends Component {
 
     render(){
         return(
-            <div>
+            <div className = "Navbar">
                 <Navbar color="faded" light expand="md">
                     <NavbarBrand href="/">Skin Routine</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>

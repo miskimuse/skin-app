@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+//import APIURL from './helpers/environment';
 
 class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
             username: '',
+            email: '',
             password: ''
         }
     }
@@ -17,15 +19,15 @@ class Login extends Component {
     }
 
     handleSubmit = (event) => {
-        fetch('http://localhost:3000/api/login',{
+        fetch('http://localhost:3000/user/signin',{
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
-        }) .then(
-            (response) => response.json()
+        }) .then((response) => response.json()
         ) .then((data) => {
+            console.log(data)
             this.props.setToken(data.sessionToken)
         })
         event.preventDefault();
@@ -38,14 +40,15 @@ class Login extends Component {
                 <h6></h6>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="username">Username</Label>
+                        <Label></Label> 
                         <Input id="li_username" type="text" name="username" placeholder="enter username" onChange={this.handleChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="email">Email</Label>
+                        <Label></Label> 
                         <Input id="li_username" type="text" name="email" placeholder="enter email" onChange={this.handleChange}
                     FormGroup></Input>
-                        <Label for="password">Password</Label>
+                        <Label></Label>
+                        <br/>
                         <Input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange}/>
                     </FormGroup>
                     <Button type="submit">Welcome back!</Button>

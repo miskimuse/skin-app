@@ -1,10 +1,12 @@
 import React from 'react';
-import SkinLogIndex from '../skinLog/WorkoutIndex';
+import Routine from "../routine/RoutineCreate"
+
+//import APIURL from './helpers/environment';
 
 const Splash = (props) => {
     return (
         <div>
-            <SkinLogIndex token={props.sessionToken}/>
+            <Routine sessionToken={props.sessionToken}/>
         </div>
     )
 }

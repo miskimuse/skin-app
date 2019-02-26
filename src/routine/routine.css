@@ -1,0 +1,14 @@
+.routine{
+    text-align: center;
+
+}
+
+.routine {
+    background-image: url('../assets/picone.jpeg');
+    background-position: 50%;
+    background-size: cover;
+    text-align: center;
+    width: 250vh;
+    height: 250vh
+
+}
