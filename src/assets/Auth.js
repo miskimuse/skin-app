@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import './auth.css';
 
+
 const Auth = (props) => {
     return (
         <body className body>
