@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navbar from './home/Navbar';
 import Splash from './home/Splash';
 import Auth from './auth/Auth';
-import APIURL from './helpers/environment';
 import './App.css';
 
 import {
