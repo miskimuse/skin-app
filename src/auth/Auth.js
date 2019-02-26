@@ -3,7 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import Signup from './Signup';
 import Login from './Login';
 import './auth.css';
-//import APIURL from './helpers/environment';
+import APIURL from './helpers/environment';
 
 
 class Auth extends React.Component {

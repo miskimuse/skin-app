@@ -22,7 +22,7 @@ class RoutineCreate extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/skin', {
+        fetch(`${APIURL}/skin`, {
             method: 'POST', 
             body: JSON.stringify(this.state),
             headers: new Headers({

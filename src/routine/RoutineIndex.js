@@ -3,6 +3,7 @@ import WorkoutCreate from './WorkoutCreate';
 import {Container, Row, Col} from 'reactstrap';
 import RoutineTable from './RoutineTable';
 import RoutineEdit from './RoutineEdit';
+import APIURL from './helpers/environment';
 
 class RoutineIndex extends Component {
     constructor(props){
@@ -16,7 +17,7 @@ class RoutineIndex extends Component {
 
     fetchWorkouts = () => {
         console.log(this.props.token, 'line 18 in routineindex');
-        fetch('http://localhost:3000/api/log', {
+        fetch(`${APIURL}/log`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ class RoutineIndex extends Component {
     }
 
     routineDelete = (event) => {
-        fetch(`http://localhost:3000/api/log/${event.target.id}`, {
+        fetch(`${APIURL}/skin/${event.target.id}`, {
             method: 'DELETE',
             body: JSON.stringify({log: {id: event.target.id}}),
             headers: new Headers({
@@ -41,7 +42,7 @@ class RoutineIndex extends Component {
     }
 
     routineUpdate = (event, routine) => {
-        fetch(`http://localhost:3000/api/log/${routine.id}`, {
+        fetch(`${APIURL}/skin/${routine.id}`, {
             method: 'PUT',
             body: JSON.stringify({log: routine}),
             headers: new Headers({
