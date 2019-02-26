@@ -3,7 +3,7 @@ import WorkoutCreate from './WorkoutCreate';
 import {Container, Row, Col} from 'reactstrap';
 import RoutineTable from './RoutineTable';
 import RoutineEdit from './RoutineEdit';
-import APIURL from './helpers/environment';
+import APIURL from '../helpers/environment';
 
 class RoutineIndex extends Component {
     constructor(props){
