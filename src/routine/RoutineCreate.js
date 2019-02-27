@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import "../routine/routine.css"
+// import "../routine/routine.css"
 import APIURL from '../helpers/environment';
 
 
@@ -8,10 +8,10 @@ class RoutineCreate extends Component {
     constructor(props){
         super(props);
         this.state = {
-            cleanser:'test',
-            exfoliant:'test',
-            moisturizer:'test',
-            result:'test'
+            cleanser:'',
+            exfoliant:'',
+            moisturizer:'',
+            result:''
         };
     }
 
@@ -23,16 +23,17 @@ class RoutineCreate extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${APIURL}/skin`, {
+        console.log(this.props.token)
+        fetch(`${APIURL}/skin/create`, {
             method: 'POST', 
             body: JSON.stringify(this.state),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.sessionToken
+                'Authorization': this.props.token
             })
         }) .then((res) => res.json())
           .then((logData) => {
-            //   this.props.updateRoutineArray();
+            this.props.updateRoutinesArray();
               this.setState({
                   cleanser: '',
                   exfoliant: '',
@@ -45,29 +46,37 @@ class RoutineCreate extends Component {
     render(){
         return(
             <div className = "routine">
+            
                 <h3>Log Your Skin Routine</h3>
                 <hr/>
+                
                 <Form onSubmit={this.handleSubmit}>
-                    <FormGroup>
+                
+                    <formgroup>
+                        <Label for="cleanser">Cleanser</Label>
+                        <Input id="Cleanser" type="text" name="cleanser" value={this.state.cleanser} placeholder="cleanser" onChange={this.handleChange} />
+                        <br/>
+                        <br/>
+                        <Label for="exfoliant">Exfoliant</Label>
+                        <Input id="Exfoliant" type="text" name="exfoliant" value={this.state.exfoliant} placeholder="exfoliant" onChange=
+                        {this.handleChange} />
+                        <br/>
+                        <br/>
+                        <Label for="moisturizer">Moisturizer</Label>
+                        <Input id="moisturizer" type="text" name="moisturizer" value={this.state.moisturizer} placeholder="moisturizer" onChange={this.handleChange} />
+                        <br/>
+                        <br/>
                         <Label for="result">Result</Label>
-                        <Input id="result" type="text" name="result" value={this.state.result} placeholder="enter result" onChange={this.handleChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="definition">Type</Label>
-                        <Input type="select" name="definition" id="definition" value={this.state.definition} onChange={this.handleChange} placeholder="Type">
-                            <option></option>
-                            <option value="Cleanser">Cleanser</option>
-                            <option value="Exfoliant">Exfoliant</option>
-                            <option value="Moisturizer">Moisturizer</option>
-                        </Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="description">Notes</Label>
-                        <Input id="description" type="text" name="description" value={this.state.description} placeholder="enter description" onChange={this.handleChange} />
-                    </FormGroup>
-                    <Button type="submit" color="primary">Submit</Button>
+                        <Input id="result" type="result" name="result" value={this.state.results} placeholder="enter results" onChange={this.handleChange} />
+                        <br/>
+                        <br/>
+                    </formgroup>
+                
+                    <Button type="submit" color="primary">Create Routine</Button>
                 </Form>
+               
             </div>
+            
         )
     }
 }

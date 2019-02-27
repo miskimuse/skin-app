@@ -37,7 +37,7 @@ class App extends React.Component {
      return (
        <Switch>
          <Route path='/' exact>
-           <Splash sessionToken={this.state.sessionToken}/>
+           <Splash sessionT={this.state.sessionToken}/>
          </Route>
        </Switch>
      )

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
-class Login extends Component {
+class Signup extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -56,4 +56,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Signup;

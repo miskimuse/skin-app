@@ -1,11 +1,11 @@
 import React from 'react';
-import Routine from "../routine/RoutineCreate"
+import RoutineIndex from "../routine/RoutineIndex"
 
 
 const Splash = (props) => {
     return (
-        <div>
-            <Routine sessionToken={props.sessionToken}/>
+        <div className="bgImage">
+            <RoutineIndex sessionToken={props.sessionT}/>
         </div>
     )
 }

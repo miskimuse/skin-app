@@ -45,7 +45,7 @@ class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label></Label> 
-                        <Input id="li_username" type="text" name="email" placeholder="enter email" onChange={this.handleChange}
+                        <Input id="li_email" type="text" name="email" placeholder="enter email" onChange={this.handleChange}
                     FormGroup></Input>
                         <Label></Label>
                         <br/>

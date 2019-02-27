@@ -9,10 +9,10 @@ const RoutineTable = (props) => {
             <Table striped>
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Cleanser</th>
                         <th>Exfoliant</th>
                         <th>Moisturizer</th>
+                        <th>Result</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -21,7 +21,7 @@ const RoutineTable = (props) => {
                         props.routines.map((routine, id) => {
                             return (
                                 <tr key={id}>
-                                    <th scope="row">{routine.cleanser}</th>
+                                    <td scope="row">{routine.cleanser}</td>
                                     <td>{routine.exfoliant}</td>
                                     <td>{routine.moisturizer}</td>
                                     <td>{routine.result}</td>

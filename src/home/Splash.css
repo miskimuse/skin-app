@@ -1,9 +1,4 @@
-.routine{
-    text-align: center;
-
-}
-
-.routine {
+.bgImage {
     background-image: url('../assets/picone.jpeg');
     background-position: 50%;
     background-size: cover;

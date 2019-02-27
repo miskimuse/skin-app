@@ -5,19 +5,19 @@ class RoutineEdit extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            Cleanser: '',
-            Exfoliant: '',
-            Moisturizer: '',
-            Result: ''
+            cleanser: '',
+            exfoliant: '',
+            moisturizer: '',
+            result: ''
         }
     }
 
     componentWillMount(){
         this.setState({
-            id: this.props.routine.id,
-            result: this.props.routine.result,
-            description: this.props.rouine.description,
-            definition: this.props.routine.definition
+            cleanser: this.props.cleanser,
+            exfoliant: this.props.exfoliant,
+            moisturizer: this.props.moisturizer,
+            result: this.props.result
         })
     }
 
