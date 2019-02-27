@@ -6,12 +6,12 @@ import APIURL from '../helpers/environment';
 
 class RoutineCreate extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
-            cleanser:'',
-            exfoliant:'',
-            moisturizer:'',
-            result:''
+            cleanser:'test',
+            exfoliant:'test',
+            moisturizer:'test',
+            result:'test'
         };
     }
 
