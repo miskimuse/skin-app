@@ -43,15 +43,17 @@ componentWillMount() {
     }
 
     routineUpdate = (event, routine) => {
-        console.log(event, routine)
-        fetch(`${APIURL}/skin/${routine.id}`, {
+        console.log(routine)
+        console.log(this.state.routineToUpdate)
+        fetch(`${APIURL}/skin/${this.state.routineToUpdate.id}`, {
             method: 'PUT',
-            body: JSON.stringify({log: routine}),
+            body: JSON.stringify({skin: routine}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
-        }) .then((res) => {
+        }) 
+        .then((res) => {
             this.setState({updatePressed: false})
             this.fetchRoutines();
         })

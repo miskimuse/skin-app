@@ -14,10 +14,11 @@ class RoutineEdit extends React.Component {
 
     componentWillMount(){
         this.setState({
-            cleanser: this.props.cleanser,
-            exfoliant: this.props.exfoliant,
-            moisturizer: this.props.moisturizer,
-            result: this.props.result
+            cleanser: this.props.routine.cleanser,
+            exfoliant: this.props.routine.exfoliant,
+            moisturizer: this.props.routine.moisturizer,
+            result: this.props.routine.result,
+            id: this.props.routine.id
         })
     }
 
@@ -28,6 +29,7 @@ class RoutineEdit extends React.Component {
     }
 
     handleSubmit = (event) => {
+        console.log(this.props)
         event.preventDefault();
         this.props.update(event, this.state);
     }

@@ -22,7 +22,7 @@ class Login extends Component {
         fetch(`${APIURL}/user/signin`,{
             method: 'POST',
             body: JSON.stringify({user:this.state}),
-            headers: new Headers({
+            headers: ({
                 'Content-Type': 'application/json'
             })
         }) .then((response) => response.json()
